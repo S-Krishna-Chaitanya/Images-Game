@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+	img{height:150px;width:150px;}		}
+	</style>
+	<title>IMAGE GAME2</title>
+</head>
+<body style="background-image:url(pix.jpg); ">
+	<div id="d" width="100px" height="400px" style="float: left;"><h1 style="color:orange"><b>Points</b></h1><h1 id="h1" style="color:lightblue"><i></i></h1><br><br><h1 id="h1" style="color:orange"><b>Remaining</b></h1><h1 id="h2" style="color:lightblue"><b></b></h1><br><h1 style="color:white">Level II</h1><br><h1 id="high" style="color:pink"></h1>
+	</div>
+	
+	<div  height="600px" width="500px" style="float: absolute;">
+	
+
+	<table align="center" id="leela" border="1px solid black" height="500" width=400>
+		<tr>
+			<td ><img src="1.jpg" id="0"  onclick="change(this.id)"></td>
+			<td><img src="1.jpg" id="1"  onclick="change(this.id)"></td>
+			<td><img src="1.jpg" id="2"  onclick="change(this.id)"></td>
+			<td><img src="1.jpg" id="3"    onclick="change(this.id)"></td>
+			<td><img src="1.jpg" id="4"  onclick="change(this.id)"></td>
+		</tr>
+		<tr>
+			<td><img src="1.jpg" id="5"  onclick="change(this.id)"></td>
+			<td><img src="1.jpg" id="6"  onclick="change(this.id)"></td>
+			<td><img src="1.jpg" id="7"  onclick="change(this.id)"></td>        
+			<td><img src="1.jpg" id="8"  onclick="change(this.id)"></td>
+			<td><img src="1.jpg" id="9"  onclick="change(this.id)"></td>
+		</tr>
+		<tr>
+			<td><img src="1.jpg" id="10"  onclick="change(this.id)"></td>
+			<td><img src="1.jpg" id="11"  onclick="change(this.id)"></td>
+			<td><img src="1.jpg" id="12"  onclick="change(this.id)"></td>
+			<td><img src="1.jpg" id="13"  onclick="change(this.id)"></td>
+			<td><img src="1.jpg" id="14"  onclick="change(this.id)"></td>		
+		</tr>
+		<tr>
+			<td><img src="1.jpg" id="15"  onclick="change(this.id)"></td>
+			<td><img src="1.jpg" id="16"  onclick="change(this.id)"></td>
+			<td><img src="1.jpg" id="17"  onclick="change(this.id)"></td>
+			<td><img src="1.jpg" id="18"  onclick="change(this.id)"></td>
+			<td><img src="1.jpg" id="19"  onclick="change(this.id)"></td>	
+		</tr>
+	</table>
+	</div>
+	<script type="text/javascript">
+     var  n1,n2,m1=0,i=0,c,r=10,h=0;
+                     						document.getElementById("high").innerHTML="HighScore="+localStorage.getItem("highh");
+
+     		var m=new Array(); 
+     		hh=parseInt(localStorage.getItem("highh"));
+     		c=parseInt(localStorage.getItem("points"));
+     		call();
+			 var imhgs = JSON.parse((localStorage.getItem("imgs")));		
+			function check2(){
+			for(var i3=0;i3<20;i3++){
+				document.getElementById(i3).src="1.jpg";
+				}
+			}
+			function check1(){
+				for(var i2=0;i2<m.length;i2++){
+					
+	for(var i1=0;i1<20;i1++){
+		
+if(imhgs[i1]==m[i2]){
+	document.getElementById(i1).src="ntr2.jpg";
+	}
+}}
+	}
+
+	function shuffle(arra1) {
+    var ctr = arra1.length, temp, index;
+    while (ctr > 0) {
+        index = Math.floor(Math.random() * ctr);
+        ctr--;
+        temp = arra1[ctr];
+        arra1[ctr] = arra1[index];
+        arra1[index] = temp;
+    }
+    return arra1;
+}
+
+ 
+		function change(n){
+			var y=document.getElementById(parseInt(n)).src;
+			var arr=y.split("/");
+			var z=arr[arr.length-1];
+			if(z=="ntr2.jpg"){}
+			else{if(i==0){
+				n1=parseInt(n);i++;
+				document.getElementById(n1).src=imhgs[parseInt(n1)]	}
+			else if(i==1){	n2=parseInt(n);
+				if(n1==n2){		}
+					else{document.getElementById(n2).src=imhgs[parseInt(n2)]
+						setTimeout(check,500);
+							i=2;			}}	}}
+		function check(){
+		if((document.getElementById(n1).src)==(document.getElementById(n2).src)){
+			m[m1++]=imhgs[n1];
+				document.getElementById(n1).src="ntr2.jpg";
+				c=c+1000;
+				document.getElementById(n2).src="ntr2.jpg";
+				
+				i=0;r--;call();}
+			else{document.getElementById(n1).src="1.jpg";document.getElementById(n2).src="1.jpg";i=0;c=c-300;call();imhgs=shuffle(imhgs);check2();
+check1();
+			}}	
+			function call(){
+				document.getElementById("h1").innerHTML=c;
+                				document.getElementById("h2").innerHTML=r;
+                				if(r==0){
+                					if(hh<c){
+                						localStorage.setItem("highh",c)
+                						document.getElementById("high").innerHTML="HighScore="+localStorage.getItem("highh");
+                					}
+									                     						 var x = document.createElement("BUTTON");
+                					
+    var t = document.createTextNode("Retry");
+    x.appendChild(t);
+    x.id="55";
+    var z=document.getElementById("d");
+    z.appendChild(x); 
+    document.getElementById("55").onclick=function(){
+    	window.location.assign("main1.html");
+    }
+                					  /*  var x = document.createElement("BUTTON");
+                					
+    var t = document.createTextNode("Retry");
+    x.appendChild(t);
+    x.id="55";
+    var z=document.getElementById("d");
+    z.appendChild(x); 
+    document.getElementById("55").onclick=function(){
+    	window.location.assign("main1.html");*/
+    }
+                				
+}
+   
+			
+ 			
+           </script>
+</body>
+</html>

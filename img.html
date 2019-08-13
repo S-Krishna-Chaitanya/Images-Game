@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+	img{height:150px;width:150px;}		}
+	</style>
+	<title>IMAGE GAME</title>
+</head>
+<body style="background-image:url(pix.jpg); ">
+	<div  width="100px" height="400px" style="float: left;">
+	<h1 style="color:orange"><b>Points</b></h1><h1 id="h1" style="color:lightblue"><i></i></h1><br><br><h1 id="h1" style="color:orange"><b>Remaining</b></h1><h1 id="h2" style="color:lightblue"><b></b></h1><br><br><br><br><h1 id="h3"   style="color:white">Level I</h1><br><h1 id="h4" style="color:red"></h1>
+		<h1 id="h3"   style="color:lightblue"></h1><br><h1 id="h4" style="color:red"></h1></div>
+	
+	<div  height="600px" width="500px" style="float: absolute;">
+	
+
+	<table align="center" id="leela" border="1px solid black" height="500" width=400>
+
+		<tr>
+			<td ><img src="1.jpg" id="0"  onclick="change(this.id)"></td>
+			<td><img src="1.jpg" id="1"  onclick="change(this.id)"></td>
+			<td><img src="1.jpg" id="2"  onclick="change(this.id)"></td>
+			<td><img src="1.jpg" id="3"    onclick="change(this.id)"></td>
+			<td><img src="1.jpg" id="4"  onclick="change(this.id)"></td>
+		</tr>
+		<tr>
+			<td><img src="1.jpg" id="5"  onclick="change(this.id)"></td>
+			<td><img src="1.jpg" id="6"  onclick="change(this.id)"></td>
+			<td><img src="1.jpg" id="7"  onclick="change(this.id)"></td>        
+			<td><img src="1.jpg" id="8"  onclick="change(this.id)"></td>
+			<td><img src="1.jpg" id="9"  onclick="change(this.id)"></td>
+		</tr>
+		<tr>
+			<td><img src="1.jpg" id="10"  onclick="change(this.id)"></td>
+			<td><img src="1.jpg" id="11"  onclick="change(this.id)"></td>
+			<td><img src="1.jpg" id="12"  onclick="change(this.id)"></td>
+			<td><img src="1.jpg" id="13"  onclick="change(this.id)"></td>
+			<td><img src="1.jpg" id="14"  onclick="change(this.id)"></td>		
+		</tr>
+		<tr>
+			<td><img src="1.jpg" id="15"  onclick="change(this.id)"></td>
+			<td><img src="1.jpg" id="16"  onclick="change(this.id)"></td>
+			<td><img src="1.jpg" id="17"  onclick="change(this.id)"></td>
+			<td><img src="1.jpg" id="18"  onclick="change(this.id)"></td>
+			<td><img src="1.jpg" id="19"  onclick="change(this.id)"></td>	
+		</tr>
+	</table>
+	</div>
+	<script type="text/javascript">
+     var  n1,n2,m,i=0,c=0,r=10;l=10;
+	call()
+			 var imhgs = JSON.parse((localStorage.getItem("imgs")));
+		function change(n){
+			
+			if((parseInt(n)>20)){}
+			else{if(i==0){
+				n1=parseInt(n);i++;
+				document.getElementById(n1).src=imhgs[parseInt(n1)]	}
+			else if(i==1){	n2=parseInt(n);
+				if(n1==n2){		}
+					else{document.getElementById(n2).src=imhgs[parseInt(n2)]
+						setTimeout(check,500);
+							i=2;			}}	}}
+		function check(){
+		if((document.getElementById(n1).src)==(document.getElementById(n2).src)){
+				document.getElementById(n1).src="ntr2.jpg";document.getElementById(n1).id="21";c=c+1000;
+				document.getElementById(n2).src="ntr2.jpg";document.getElementById(n2).id="21";i=0;r--;call();}
+			else{document.getElementById(n1).src="1.jpg";document.getElementById(n2).src="1.jpg";i=0;c=c-300;call();
+			}}	
+			function call(){
+				document.getElementById("h1").innerHTML=c;
+                				document.getElementById("h2").innerHTML=r;
+                				if(r==0){
+                				
+                					localStorage.setItem("points",c);
+                				localStorage.setItem("leela",2);
+
+                					document.getElementById("h3").innerHTML="You will Promoted to <br> next level in ";
+                				  mul()
+
+                				}
+
+                				}
+	function mul(){
+		var timeleft = 10;
+    var downloadTimer = setInterval(function(){
+    timeleft--;
+    document.getElementById("h4").textContent = timeleft+"sec";
+    if(timeleft==0){
+    	window.location.assign("main.html");
+    }
+    if(timeleft <= 0)
+        clearInterval(downloadTimer);
+    },1000);
+
+	}
+			
+ 			
+           </script>
+</body>
+</html>

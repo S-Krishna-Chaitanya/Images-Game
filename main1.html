@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body  style="background-image:url(pix.jpg);background-repeat:no-repeat;">
+	
+	<center ><h1  style="color:lightblue">IMAGE MATCHING</h1></center>
+	<br><b><h2  style="color:orange">Description</h2><b>
+	   <h3 style="color:lightgreen"><i> Here there is 10 seconds to get overview of puzzle  i.e when u take mouse to particular image that image will be displayed</b><br></i></h3>
+		<b><h2  style="color:orange">Levels</h2><h3 style="color:lightgreen"><i><b>1.Basic level<br>2.Here for every mismatch whole puzzle  is shuffled</i>
+	</h3>
+	<br>
+	<b><h2 style="color:orange">Points</h2></b>
+	<h3 style="color:lightgreen"><i>
+	1.For every correct match 1000 points are added<br>2.For every mismatch 300 will be deducted</i></h3><br>
+	<br>
+	<button type="button" onclick="fun()">Play</button>
+</body>
+<script type="text/javascript">
+	function fun(){
+	window.location.assign("main.html");}
+	localStorage.setItem("leela",1);
+	localStorage.setItem("points",0);
+	var ty=0;
+	if(ty==0){
+		localStorage.setItem("highh",1000);
+		ty=1;
+	}
+
+</script>
+</html>

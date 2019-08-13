@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body >
+	
+	
+<script type="text/javascript" >
+	document.write("leela");
+	
+
+	var imhgs=["prabhas.jpg","sam.jpg","kir.jpg","prabhas.jpg","kajal.jpg","kajal.jpg","allu.jpg","ntr.jpg","ntr.jpg","rakul.jpg","kir.jpg","sam.jpg","mahesh.jpg","allu.jpg","venky.jpg","rash.jpg","rash.jpg","venky.jpg","rakul.jpg","mahesh.jpg"];
+	
+	var imgs=shuffle(imhgs);
+	
+	
+localStorage.setItem("imgs", JSON.stringify(imgs));
+	function shuffle(arra1) {
+    var ctr = arra1.length, temp, index;
+    while (ctr > 0) {
+        index = Math.floor(Math.random() * ctr);
+        ctr--;
+        temp = arra1[ctr];
+        arra1[ctr] = arra1[index];
+        arra1[index] = temp;
+    }
+    return arra1;
+}
+ 
+</script>
+</body>
+</html>

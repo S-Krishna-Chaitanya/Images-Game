@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+
+	img{height:150px;width:150px;
+		}
+	</style>
+	<title>IMAGE GAME</title>
+	
+</head>
+<body onload="add1()" style="background-image:url(pix.jpg); ">
+<div  width="100px" height="400px" style="float: left;">
+<h1 style="color:lightblue">Game Starts in</h1>
+
+<h1 id="l" style="color:red"></h1>
+</div>
+<div  height="600px" width="500px" style="float: absolute;">
+	<table align="center" id="leela" border="1px solid black" height="500" width=400>
+		<tr>
+			<td ><img src="1.jpg" id="0"  onmouseover="add(this.id)" onmouseout="this.src='1.jpg'"></td>
+			<td><img src="1.jpg" id="1"   onmouseover="add(this.id)" onmouseout="this.src='1.jpg'"></td>
+			<td><img src="1.jpg" id="2"   onmouseover="add(this.id)" onmouseout="this.src='1.jpg'"></td>
+			<td><img src="1.jpg" id="3"     onmouseover="add(this.id)" onmouseout="this.src='1.jpg'"></td>
+			<td><img src="1.jpg" id="4"   onmouseover="add(this.id)" onmouseout="this.src='1.jpg'"></td>
+			
+		</tr>
+		<tr>
+			<td><img src="1.jpg" id="5"   onmouseover="add(this.id)" onmouseout="this.src='1.jpg'"></td>
+			<td><img src="1.jpg" id="6"   onmouseover="add(this.id)" onmouseout="this.src='1.jpg'"></td>
+			<td><img src="1.jpg" id="7"   onmouseover="add(this.id)" onmouseout="this.src='1.jpg'"></td>        
+			<td><img src="1.jpg" id="8"   onmouseover="add(this.id)" onmouseout="this.src='1.jpg'"></td>
+			<td><img src="1.jpg" id="9"   onmouseover="add(this.id)" onmouseout="this.src='1.jpg'"></td>
+			
+		</tr>
+		<tr>
+			<td><img src="1.jpg" id="10"   onmouseover="add(this.id)" onmouseout="this.src='1.jpg'"></td>
+			<td><img src="1.jpg" id="11"   onmouseover="add(this.id)" onmouseout="this.src='1.jpg'"></td>
+			<td><img src="1.jpg" id="12"   onmouseover="add(this.id)" onmouseout="this.src='1.jpg'"></td>
+			<td><img src="1.jpg" id="13"   onmouseover="add(this.id)" onmouseout="this.src='1.jpg'"></td>
+			<td><img src="1.jpg" id="14"   onmouseover="add(this.id)" onmouseout="this.src='1.jpg'"></td>
+			
+		</tr>
+		<tr>
+			<td><img src="1.jpg" id="15"   onmouseover="add(this.id)" onmouseout="this.src='1.jpg'"></td>
+			<td><img src="1.jpg" id="16"   onmouseover="add(this.id)" onmouseout="this.src='1.jpg'"></td>
+			<td><img src="1.jpg" id="17"   onmouseover="add(this.id)" onmouseout="this.src='1.jpg'"></td>
+			<td><img src="1.jpg" id="18"  onmouseover="add(this.id)" onmouseout="this.src='1.jpg'"></td>
+			<td><img src="1.jpg" id="19"   onmouseover="add(this.id)" onmouseout="this.src='1.jpg'"></td>
+			
+		</tr>
+	</table>
+</div>
+	<script type="text/javascript">
+           var  n1,n2,m,i=0;
+            var imhgs = JSON.parse((localStorage.getItem("imgs")));
+            		       
+	       function add(n){
+	       	document.getElementById(parseInt(n)).src=imhgs[parseInt(n)];
+
+	       }
+	       var c=10;
+var t;
+function add1()
+{
+if(localStorage.getItem("c"))
+   {
+   c=localStorage.getItem("c");
+   }
+   sub();
+   }
+function sub() {
+
+
+c=c-1;
+
+if(c>=0)
+{
+//localStorage.setItem("c",c);
+ c=checkTime(c);
+document.getElementById("l").innerHTML ="0"+":"+c+" sec";
+t = setTimeout( add1 , 1000);
+if(c==0){
+	i=0;
+d=parseInt(localStorage.getItem("leela"));
+//localStorage.removeItem("c");
+if(d==1){
+window.location.assign("img.html");}
+else if(d==2){window.location.assign("level2.html");}
+
+
+}
+
+}
+}
+
+
+function checkTime(i) {
+    if (i < 10) {
+        i = "0" + i;
+    }
+    
+	  return i;
+}
+	   </script>
+	</body>
+	</html>
